@@ -23,7 +23,7 @@ const renderer = async (file, inject) => {
       let styles = sass.renderSync({ file: path.resolve(`./themes/default/components/${path.basename(file).split('.')[0]}.sass`) })
       rendered = `${rendered} <style> ${styles.css}</style>`
       if (inject) {
-        let template = fs.readFileSync(path.resolve('./.tools/dev/layout.html')).toString()
+        let template = fs.readFileSync(path.resolve('./tools/dev/layout.html')).toString()
         rendered = template.replace('{{yield}}', rendered)
       }
       break
@@ -36,7 +36,7 @@ const renderer = async (file, inject) => {
       let styles = sass.renderSync({ file: path.resolve(`./themes/default/components/${path.basename(file).split('.')[0]}.sass`) })
       rendered = `${rendered} <style> ${styles.css}</style>`
       if (inject) {
-        let template = fs.readFileSync(path.resolve('./.tools/dev/layout.html')).toString()
+        let template = fs.readFileSync(path.resolve('./tools/dev/layout.html')).toString()
         rendered = template.replace('{{yield}}', rendered)
       }
       break
