@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Honeycomb components</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+<body>
+  <div class="component component--block-animation">
+    {{yield}}
+  </div>
+  <script type="text/javascript">
+    var ws = new WebSocket(`ws://127.0.0.1:2000${window.location.pathname}`);
+    ws.onerror = function (error) {
+      console.error('WebSocket Error ' + error);
+    };
+    ws.open = function (error) {
+      console.error('WebSocket open');
+    };
+    ws.onmessage = function (message) {
+      console.log(message.data);
+      document.querySelector('.component').innerHTML = message.data
+    };
+  </script>
+</body>
+</html>
