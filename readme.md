@@ -1,6 +1,6 @@
 # styl-ish
 
-> discovery fase
+> discovery phase
 
 ## Commands
 
@@ -15,7 +15,7 @@ Access server side rendered components with custom HMR at the following urls:
 
 `npm run playground`
 
-start playground to test components:
+start playground to test components via webpack-dev-server:
 
 - react: [`http://localhost:8080/react.html`](http://localhost:8080/react.html)
 - vue: [`http://localhost:8080/vue.html`](http://localhost:8080/react.html)
