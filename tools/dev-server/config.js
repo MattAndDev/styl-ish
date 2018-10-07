@@ -20,7 +20,8 @@ module.exports = {
   // route mappings for socket
   // ...args === (req, socket, {params, query})
   socketRoutes: {
-    '/watch/:render/:folder/:name': (...args) => require('./socket-routes/watch.component')(...args)
+    '/component/:render/:folder/:name': (...args) => require('./socket-routes/watch.component')(...args),
+    '/theme/:theme': (...args) => require('./socket-routes/watch.theme')(...args)
   },
   // fallback static directories
   static: [

@@ -32,9 +32,9 @@ const start = async () => {
   // eslint-disable-next-line no-console
   console.log(`Started server at localhost: http://localhost:${config.port}`)
   // eslint-disable-next-line no-console
-  console.log(`Access react component at /component/jsx/component-name`)
+  console.log(`Access react component at /react/folder/component-name`)
   // eslint-disable-next-line no-console
-  console.log(`Access static component at /component/ejs/component-name`)
+  console.log(`Access vue component at /vue/folder/component-name`)
   return server
 }
 

@@ -23,7 +23,7 @@ const watchComponent = async (req, socket, { params }) => {
       let debounce = false
       watch(folder, async (event, filename) => {
         if (debounce) return
-        if (filename && event === 'change') {
+        if (filename && event === 'change' && socket.readyState === 1) {
           socket.send('update')
         }
         debounce = setTimeout(() => (debounce = false), 1500)
