@@ -25,7 +25,6 @@ Knob.defaultProps = {
 
 Knob.propTypes = {
   Elem: PropTypes.oneOf(['a', 'button']),
-  properties: PropTypes.object,
   extraClasses: PropTypes.string
 }
 

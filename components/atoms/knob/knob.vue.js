@@ -1,8 +1,10 @@
-const mixins = require('../mixins')
+/* eslint-disable react/react-in-jsx-scope, react/no-unknown-property */
+const mixins = require('../mixins-vue')
 const name = 'knob'
 
-module.exports = {
-  funtional: true,
+export default {
+  name: name,
+  functional: true,
   mixins: [mixins.classes],
   props: {
     Elem: {
@@ -11,14 +13,16 @@ module.exports = {
       validator: (value) => ['button', 'a', 'span'].includes(value)
     }
   },
-  render (createElement, context) {
-    return createElement(
-      this.Elem,
-      {
-        on: { ...this.events },
-        class: `${name} ${this.modifiers.map(mod => `${name}--${mod}`).join(' ')} ${this.extraClasses}`
-      },
-      this.$slots.default || 'Knob'
-    )
-  }
+  render: (h, {
+    children,
+    props,
+    attrs
+  }) => (
+    <props.Elem
+      class={`${name} ${props.extraClasses} ${props.modifiers.map(mod => `${name}--${mod}`).join(' ')}`}
+      {...attrs}
+    >
+      {(!children) ? 'Knob' : children}
+    </props.Elem>
+  )
 }
