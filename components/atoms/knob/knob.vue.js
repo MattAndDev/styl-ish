@@ -2,7 +2,7 @@
 const mixins = require('../mixins-vue')
 const name = 'knob'
 
-export default {
+const Knob = {
   name: name,
   functional: true,
   mixins: [mixins.classes],
@@ -14,8 +14,8 @@ export default {
     }
   },
   render: (h, {
-    children,
     props,
+    children,
     attrs
   }) => (
     <props.Elem
@@ -26,3 +26,5 @@ export default {
     </props.Elem>
   )
 }
+
+export default Knob

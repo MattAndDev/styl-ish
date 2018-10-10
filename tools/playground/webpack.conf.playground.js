@@ -62,6 +62,9 @@ module.exports = {
           options: {
             presets: [
               '@babel/preset-env'
+            ],
+            plugins: [
+              '@vue/transform-vue-jsx'
             ]
           }
         }

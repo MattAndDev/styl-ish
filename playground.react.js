@@ -5,12 +5,25 @@ import InputText from './components/atoms/input-text/input-text.react'
 require('./themes/default/components/knob')
 
 const onClick = (e) => {
-  console.log(e)
+  switch (e.type) {
+    case 'click':
+      console.log('CLICK');
+      break
+    case 'focus':
+      console.log('FOCUS');
+      break
+    case 'blur':
+      console.log('BLUR');
+      break
+  }
+  console.log(e.type)
 }
 ReactDOM.render(
   <div>
     <Knob
       type='button'
+      rel="'asda'"
+
       onClick={onClick}
     >
       Hello

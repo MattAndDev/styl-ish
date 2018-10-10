@@ -28,4 +28,4 @@ Knob.propTypes = {
   extraClasses: PropTypes.string
 }
 
-module.exports = Knob
+export default Knob

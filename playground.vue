@@ -1,27 +1,18 @@
 <template>
   <div class="app">
-    <knob 
-      type="button"
-      :modifiers="btnModifiers"
-      @click.native="onClick"
-    >
-      A
-    </knob>
-    <input-text 
-      placeholder="wuto"
-      :modifiers="btnModifiers"
-      @blur.native="onBlur"
-      @focus.native="onClick"
-    />
+    <knob />
+  
   </div>
 </template>
 <script>
-const Knob = require('./components/atoms/knob/knob.vue')
-const InputText = require('./components/atoms/input-text/input-text.vue')
+import Knob from './components/atoms/knob/knob.vue.js'
+// import InputText from './components/atoms/input-text/input-text.vue'
+// import Dropdown from './components/atoms/dropdown/dropdown.vue'
 export default {
   name: 'App',
   components: {
-    Knob, InputText
+    Knob
+    // Knob, InputText, Dropdown
   },
   data () {
     return {
@@ -30,16 +21,16 @@ export default {
   },
   methods: {
     onClick (e){
+      console.log('clicklcik');
       this.disabled = true
     },
     onBlur (e){
-      console.log('adad');
       this.disabled = false
     }
   },
   computed: {
     btnModifiers () {
-      let mods = []
+      let mods = ['primary']
       if (this.disabled) {
         mods.push('disabled')
       }

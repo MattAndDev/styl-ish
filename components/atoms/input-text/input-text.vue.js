@@ -1,32 +1,17 @@
-const mixins = require('../mixins')
-const name = 'input-text'
-
+/* eslint-disable react/react-in-jsx-scope, react/no-unknown-property, react/prop-types */
 module.exports = {
-  funtional: true,
-  name: name,
-  mixins: [mixins.classes],
-  render (createElement) {
-    return createElement(
-      'input',
-      {
-        domProps: {
-          value: this.defaultValue
-        },
-        class: this.classes,
-        on: {
-          input: (e) => {
-            this.$emit('input')
-            this.value = e.target.value
-          },
-          ...this.events
-        }
-      }
-    )
-  },
+  functional: true,
+  render: (h, {
+    props,
+    children,
+    attrs
+  }) => (
+    <input value={props.defaultValue} />
+  ),
   props: {
     defaultValue: {
       type: String,
-      default: ''
+      default: 'ads'
     }
   }
 }

@@ -7,7 +7,7 @@ module.exports = {
       },
       modifiers: {
         type: Array,
-        default: () => []
+        default: () => (['asdad'])
       }
     }
   }

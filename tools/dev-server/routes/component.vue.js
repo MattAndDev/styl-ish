@@ -15,6 +15,12 @@
 *  @func componentEjs
 */
 
+// babel register to support react features in node
+require('@babel/register')({
+  presets: ['@babel/preset-env'],
+  plugins: ['@vue/transform-vue-jsx']
+})
+
 const { existsSync, readFileSync } = require('fs')
 const { join, resolve, basename } = require('path')
 
