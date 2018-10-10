@@ -17,7 +17,7 @@
 
 // babel register to support react features in node
 require('@babel/register')({
-  presets: ['@babel/preset-react'],
+  presets: ['@babel/preset-env', '@babel/preset-react'],
   plugins: ['@babel/plugin-proposal-object-rest-spread']
 })
 
@@ -37,7 +37,6 @@ const componentReact = async (req, res, { params, query }) => {
   }
 
   let file = join(resolve('./components'), params.folder, `${params.name}/${params.name}.react.js`)
-
   if (!await existsSync(file)) {
     res.status = 404
     res.setHeader('Content-type', 'text/plain')
@@ -45,7 +44,7 @@ const componentReact = async (req, res, { params, query }) => {
     return true
   }
 
-  const component = require(file)
+  const component = require(file).default
   const componentElem = React.createElement(component)
   delete require.cache[require.resolve(file)]
   let rendered = ReactDOMServer.renderToString(componentElem)
